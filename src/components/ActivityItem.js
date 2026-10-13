@@ -71,7 +71,7 @@ export const ActivityItem = ({
                 },
               ]}
             >
-              {item.isCompleted ? '✓ Đã xong' : '⏳ Đang làm'}
+              {item.isCompleted ? 'Đã xong' : 'Chưa xong'}
             </Text>
           </View>
         </View>
@@ -82,7 +82,9 @@ export const ActivityItem = ({
           style={styles.actionIcon}
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
-          <Text style={styles.iconText}>{item.isFavorite ? '❤️' : '🤍'}</Text>
+          <Text style={[styles.iconText, { color: item.isFavorite ? '#E91E63' : theme.textSecondary }]}>
+            {item.isFavorite ? '★' : '☆'}
+          </Text>
         </TouchableOpacity>
       </View>
 
@@ -129,7 +131,7 @@ export const ActivityItem = ({
               { color: item.isCompleted ? theme.primary : theme.success },
             ]}
           >
-            {item.isCompleted ? '↩️ Đánh dấu chưa xong' : '✅ Hoàn thành'}
+            {item.isCompleted ? 'Đánh dấu chưa xong' : 'Hoàn thành'}
           </Text>
         </TouchableOpacity>
 
@@ -140,7 +142,7 @@ export const ActivityItem = ({
             activeOpacity={0.7}
           >
             <Text style={[styles.deleteButtonText, { color: theme.danger }]}>
-              🗑️ Xóa
+              Xóa
             </Text>
           </TouchableOpacity>
         )}

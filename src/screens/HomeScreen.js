@@ -5,8 +5,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
 import { useProfile } from '../context/ProfileContext';
 import { ProfileCard } from '../components/ProfileCard';
@@ -42,7 +42,7 @@ export const HomeScreen = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background }]}>
+    <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.safeArea, { backgroundColor: theme.background }]}>
       <ScrollView
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
@@ -51,7 +51,7 @@ export const HomeScreen = ({ navigation }) => {
         <View style={styles.header}>
           <View>
             <Text style={[styles.greeting, { color: theme.textSecondary }]}>
-              Xin chào sinh viên Đại học FPT 👋
+              Xin chào,
             </Text>
             <Text style={[styles.userName, { color: theme.text }]}>
               {profile.name}
@@ -64,14 +64,14 @@ export const HomeScreen = ({ navigation }) => {
             ]}
           >
             <Text style={[styles.badgeAppText, { color: theme.primary }]}>
-              MMA301 - FPTU
+              MMA301
             </Text>
           </View>
         </View>
 
         {/* Profile Card tóm tắt (Reusable Component) */}
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          👤 Hồ sơ cá nhân
+          Hồ sơ cá nhân
         </Text>
         <ProfileCard
           profile={profile}
@@ -81,7 +81,7 @@ export const HomeScreen = ({ navigation }) => {
 
         {/* Khối thống kê nhanh */}
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          📊 Tổng quan hoạt động
+          Tổng quan hoạt động
         </Text>
         <View style={styles.statsRow}>
           <TouchableOpacity
@@ -92,7 +92,6 @@ export const HomeScreen = ({ navigation }) => {
             onPress={() => navigation.navigate('Activity')}
             activeOpacity={0.8}
           >
-            <Text style={styles.statIcon}>📋</Text>
             <Text style={[styles.statNumber, { color: theme.primary }]}>
               {activityStats.total}
             </Text>
@@ -109,12 +108,11 @@ export const HomeScreen = ({ navigation }) => {
             onPress={() => navigation.navigate('Activity')}
             activeOpacity={0.8}
           >
-            <Text style={styles.statIcon}>❤️</Text>
             <Text style={[styles.statNumber, { color: '#E91E63' }]}>
               {activityStats.favorites}
             </Text>
             <Text style={[styles.statLabel, { color: theme.textSecondary }]}>
-              Mục yêu thích
+              Yêu thích
             </Text>
           </TouchableOpacity>
 
@@ -126,44 +124,43 @@ export const HomeScreen = ({ navigation }) => {
             onPress={() => navigation.navigate('Settings')}
             activeOpacity={0.8}
           >
-            <Text style={styles.statIcon}>{isDarkMode ? '🌙' : '☀️'}</Text>
             <Text style={[styles.statNumber, { color: theme.accent }]}>
               {isDarkMode ? 'Dark' : 'Light'}
             </Text>
             <Text style={[styles.statLabel, { color: theme.textSecondary }]}>
-              Chế độ nền
+              Giao diện
             </Text>
           </TouchableOpacity>
         </View>
 
         {/* Điều khiển nhanh Theme */}
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          🎨 Giao diện ứng dụng
+          Giao diện
         </Text>
         <ThemeToggle />
 
         {/* Menu Điều hướng chính (Navigation giữa các khu vực) */}
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          🧭 Điều hướng chính
+          Chức năng chính
         </Text>
 
         <View style={styles.buttonList}>
           <CustomButton
-            title="🔍 Xem chi tiết Hồ sơ (Profile)"
+            title="Xem chi tiết hồ sơ"
             onPress={() => navigation.navigate('Profile')}
             variant="outline"
             style={styles.navButton}
           />
 
           <CustomButton
-            title="📝 Quản lý Hoạt động & Sở thích"
+            title="Danh sách hoạt động & sở thích"
             onPress={() => navigation.navigate('Activity')}
             variant="primary"
             style={styles.navButton}
           />
 
           <CustomButton
-            title="⚙️ Cài đặt & Tùy chọn hệ thống"
+            title="Cài đặt hệ thống"
             onPress={() => navigation.navigate('Settings')}
             variant="secondary"
             style={styles.navButton}

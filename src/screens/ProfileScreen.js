@@ -4,9 +4,9 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  SafeAreaView,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
 import { useProfile } from '../context/ProfileContext';
 import { ProfileCard } from '../components/ProfileCard';
@@ -35,7 +35,7 @@ export const ProfileScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background }]}>
+    <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.safeArea, { backgroundColor: theme.background }]}>
       <ScrollView
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
@@ -62,7 +62,7 @@ export const ProfileScreen = ({ navigation }) => {
           ]}
         >
           <Text style={[styles.cardTitle, { color: theme.text }]}>
-            📌 Thông tin học tập
+            Thông tin học tập
           </Text>
 
           <View style={styles.infoRow}>
@@ -112,10 +112,10 @@ export const ProfileScreen = ({ navigation }) => {
 
           <View style={styles.infoRow}>
             <Text style={[styles.label, { color: theme.textSecondary }]}>
-              Trạng thái State:
+              Trạng thái:
             </Text>
             <Text style={[styles.value, { color: theme.success }]}>
-              ● Đã đồng bộ (Persisted)
+              Đã đồng bộ
             </Text>
           </View>
         </View>
@@ -123,21 +123,21 @@ export const ProfileScreen = ({ navigation }) => {
         {/* Nút thao tác */}
         <View style={styles.actionButtons}>
           <CustomButton
-            title="✏️ Chỉnh sửa hồ sơ"
+            title="Chỉnh sửa hồ sơ"
             onPress={() => navigation.navigate('EditProfile')}
             variant="primary"
             style={styles.button}
           />
 
           <CustomButton
-            title="🔄 Đặt lại về hồ sơ mặc định"
+            title="Khôi phục hồ sơ mặc định"
             onPress={handleReset}
             variant="outline"
             style={styles.button}
           />
 
           <CustomButton
-            title="📋 Xem danh sách hoạt động"
+            title="Xem danh sách hoạt động"
             onPress={() => navigation.navigate('Activity')}
             variant="secondary"
             style={styles.button}

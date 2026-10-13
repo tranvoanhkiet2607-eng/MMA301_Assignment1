@@ -12,9 +12,9 @@ import { CustomButton } from './CustomButton';
  * @param {function} onAction - Hàm thực hiện khi bấm nút
  */
 export const EmptyState = ({
-  icon = '📭',
+  icon,
   title = 'Chưa có hoạt động nào',
-  message = 'Danh sách hiện tại đang trống. Hãy thêm hoạt động mới hoặc khôi phục dữ liệu mẫu!',
+  message = 'Danh sách hiện tại đang trống. Hãy thêm hoạt động mới hoặc khôi phục dữ liệu mẫu.',
   actionTitle,
   onAction,
 }) => {
@@ -22,7 +22,7 @@ export const EmptyState = ({
 
   return (
     <View style={[styles.container, { backgroundColor: theme.surface, borderColor: theme.border }]}>
-      <Text style={styles.icon}>{icon}</Text>
+      {icon ? <Text style={styles.icon}>{icon}</Text> : null}
       <Text style={[styles.title, { color: theme.text }]}>{title}</Text>
       <Text style={[styles.message, { color: theme.textSecondary }]}>{message}</Text>
 

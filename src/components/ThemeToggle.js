@@ -23,14 +23,13 @@ export const ThemeToggle = ({ showLabel = true, style }) => {
       activeOpacity={0.8}
     >
       <View style={styles.leftContent}>
-        <Text style={styles.icon}>{isDarkMode ? '🌙' : '☀️'}</Text>
         {showLabel && (
           <View style={styles.labelContainer}>
             <Text style={[styles.title, { color: theme.text }]}>
-              {isDarkMode ? 'Chế độ tối (Dark)' : 'Chế độ sáng (Light)'}
+              {isDarkMode ? 'Chế độ tối (Dark Mode)' : 'Chế độ sáng (Light Mode)'}
             </Text>
             <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-              {isDarkMode ? 'Đang bật giao diện nền tối' : 'Đang bật giao diện nền sáng'}
+              {isDarkMode ? 'Đang bật nền tối' : 'Đang bật nền sáng'}
             </Text>
           </View>
         )}

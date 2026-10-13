@@ -4,9 +4,9 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  SafeAreaView,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
 import { useProfile } from '../context/ProfileContext';
 import { ThemeToggle } from '../components/ThemeToggle';
@@ -21,7 +21,7 @@ export const SettingsScreen = ({ navigation }) => {
   const handleFullReset = () => {
     Alert.alert(
       'Khôi phục cài đặt gốc',
-      'Thao tác này sẽ xóa toàn bộ dữ liệu lưu trữ trong AsyncStorage và đưa ứng dụng về trạng thái ban đầu (First-run). Bạn có muốn tiếp tục?',
+      'Thao tác này sẽ xóa toàn bộ dữ liệu lưu trữ trong AsyncStorage và đưa ứng dụng về trạng thái ban đầu. Bạn có muốn tiếp tục?',
       [
         { text: 'Hủy', style: 'cancel' },
         {
@@ -46,7 +46,7 @@ export const SettingsScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background }]}>
+    <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.safeArea, { backgroundColor: theme.background }]}>
       <ScrollView
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
@@ -60,7 +60,7 @@ export const SettingsScreen = ({ navigation }) => {
 
         {/* Khu vực Giao diện */}
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          🎨 Giao diện & Chủ đề (Theme)
+          Giao diện & Chủ đề
         </Text>
         <ThemeToggle style={styles.toggleCard} />
 
@@ -71,10 +71,10 @@ export const SettingsScreen = ({ navigation }) => {
           ]}
         >
           <Text style={[styles.infoBoxTitle, { color: theme.text }]}>
-            💡 Cơ chế hoạt động:
+            Cơ chế hoạt động:
           </Text>
           <Text style={[styles.infoBoxText, { color: theme.textSecondary }]}>
-            Trạng thái {isDarkMode ? '🌙 Dark Mode' : '☀️ Light Mode'} được chia sẻ
+            Trạng thái {isDarkMode ? 'Dark Mode' : 'Light Mode'} được chia sẻ
             thông qua Context API và tự động lưu vào bộ nhớ cục bộ (@react-native-async-storage).
             Khi khởi động lại ứng dụng, giao diện sẽ được khôi phục chính xác mà không bị mất.
           </Text>
@@ -82,7 +82,7 @@ export const SettingsScreen = ({ navigation }) => {
 
         {/* Khu vực Quản lý bộ nhớ & Dữ liệu */}
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          💾 Dữ liệu & Lưu trữ (Persistence)
+          Dữ liệu & Lưu trữ
         </Text>
 
         <View
@@ -95,11 +95,11 @@ export const SettingsScreen = ({ navigation }) => {
             Khôi phục trạng thái mặc định
           </Text>
           <Text style={[styles.storageDesc, { color: theme.textSecondary }]}>
-            Dùng để mô phỏng lần đầu tiên mở ứng dụng (First-run scenario) hoặc xóa dữ liệu kiểm thử.
+            Dùng để mô phỏng lần đầu tiên mở ứng dụng hoặc xóa dữ liệu kiểm thử.
           </Text>
 
           <CustomButton
-            title="⚠️ Khôi phục toàn bộ dữ liệu mặc định"
+            title="Khôi phục cài đặt gốc"
             onPress={handleFullReset}
             variant="danger"
             style={styles.resetButton}
@@ -108,7 +108,7 @@ export const SettingsScreen = ({ navigation }) => {
 
         {/* Khu vực Thông tin sinh viên & Assignment */}
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          ℹ️ Thông tin môn học & Đề tài
+          Thông tin môn học & Đề tài
         </Text>
 
         <View

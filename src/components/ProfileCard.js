@@ -55,7 +55,7 @@ export const ProfileCard = ({ profile, isCompact = false, onEditPress }) => {
             {profile?.role || 'Sinh viên MMA301'}
           </Text>
           <Text style={[styles.email, { color: theme.textSecondary }]} numberOfLines={1}>
-            ✉️ {profile?.email || 'Chưa có email'}
+            {profile?.email || 'Chưa có email'}
           </Text>
         </View>
       </View>
@@ -65,7 +65,7 @@ export const ProfileCard = ({ profile, isCompact = false, onEditPress }) => {
         <View style={[styles.detailsSection, { borderTopColor: theme.border }]}>
           <View style={styles.infoRow}>
             <Text style={[styles.infoLabel, { color: theme.textSecondary }]}>
-              🎓 Mã số sinh viên (MSSV):
+              Mã số sinh viên:
             </Text>
             <Text style={[styles.infoValue, { color: theme.primary, fontWeight: '700' }]}>
               {profile?.studentId || 'CE180795'}
@@ -74,7 +74,7 @@ export const ProfileCard = ({ profile, isCompact = false, onEditPress }) => {
 
           <View style={styles.infoRow}>
             <Text style={[styles.infoLabel, { color: theme.textSecondary }]}>
-              📞 Điện thoại:
+              Điện thoại:
             </Text>
             <Text style={[styles.infoValue, { color: theme.text }]}>
               {profile?.phone || 'Chưa cập nhật'}
@@ -83,7 +83,7 @@ export const ProfileCard = ({ profile, isCompact = false, onEditPress }) => {
 
           <View style={styles.bioContainer}>
             <Text style={[styles.infoLabel, { color: theme.textSecondary, marginBottom: 4 }]}>
-              📝 Giới thiệu (Bio):
+              Tiểu sử:
             </Text>
             <Text style={[styles.bioText, { color: theme.text }]}>
               {profile?.bio || 'Chưa có tiểu sử giới thiệu.'}
@@ -106,7 +106,7 @@ export const ProfileCard = ({ profile, isCompact = false, onEditPress }) => {
           activeOpacity={0.7}
         >
           <Text style={[styles.editButtonText, { color: theme.primary }]}>
-            ✏️ Chỉnh sửa hồ sơ
+            Chỉnh sửa hồ sơ
           </Text>
         </TouchableOpacity>
       )}

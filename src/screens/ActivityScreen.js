@@ -5,11 +5,11 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  SafeAreaView,
   Alert,
   TextInput,
   Modal,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
 import { ActivityItem } from '../components/ActivityItem';
 import { EmptyState } from '../components/EmptyState';
@@ -137,7 +137,7 @@ export const ActivityScreen = () => {
   });
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background }]}>
+    <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.safeArea, { backgroundColor: theme.background }]}>
       <View style={styles.container}>
         {/* Header trên cùng & nút bấm Thao tác */}
         <View style={styles.topBar}>
@@ -185,7 +185,7 @@ export const ActivityScreen = () => {
                     },
                   ]}
                 >
-                  {cat === 'Yêu thích' ? `❤️ ${cat}` : cat}
+                  {cat}
                 </Text>
               </TouchableOpacity>
             );
@@ -208,7 +208,6 @@ export const ActivityScreen = () => {
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={
             <EmptyState
-              icon={selectedCategory === 'Yêu thích' ? '💔' : '📭'}
               title={
                 selectedCategory === 'Yêu thích'
                   ? 'Chưa có mục yêu thích nào'
@@ -216,23 +215,23 @@ export const ActivityScreen = () => {
               }
               message={
                 selectedCategory === 'Yêu thích'
-                  ? 'Hãy đánh dấu ❤️ vào các hoạt động bạn thích để xem tại đây.'
-                  : 'Không tìm thấy hoạt động nào phù hợp. Bạn có thể thêm mới hoặc nạp lại dữ liệu mặc định.'
+                  ? 'Hãy chọn yêu thích ở các hoạt động để xem tại đây.'
+                  : 'Không tìm thấy hoạt động nào phù hợp. Bạn có thể thêm mới hoặc khôi phục dữ liệu mẫu.'
               }
-              actionTitle="🔄 Khôi phục dữ liệu mẫu"
+              actionTitle="Khôi phục dữ liệu mẫu"
               onAction={handleRestoreDefaults}
             />
           }
         />
 
-        {/* Thanh công cụ kiểm thử test cho sinh viên và giảng viên */}
+        {/* Thanh công cụ kiểm thử */}
         <View style={[styles.testToolbar, { backgroundColor: theme.surface, borderColor: theme.border }]}>
           <TouchableOpacity
             style={[styles.toolButton, { backgroundColor: theme.primaryLight }]}
             onPress={handleRestoreDefaults}
           >
             <Text style={[styles.toolText, { color: theme.primary }]}>
-              🔄 Nạp lại dữ liệu mẫu
+              Nạp lại dữ liệu mẫu
             </Text>
           </TouchableOpacity>
 
@@ -241,7 +240,7 @@ export const ActivityScreen = () => {
             onPress={handleClearAll}
           >
             <Text style={[styles.toolText, { color: theme.danger }]}>
-              🗑️ Xóa hết (Test Empty State)
+              Xóa tất cả
             </Text>
           </TouchableOpacity>
         </View>

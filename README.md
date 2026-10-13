@@ -44,32 +44,103 @@
 
 ---
 
-## 3. SƠ ĐỒ ĐIỀU HƯỚNG VÀ LUỒNG DỮ LIỆU (SCREEN & WORKFLOW MAP)
+## 3. SƠ ĐỒ ĐIỀU HƯỚNG VÀ CẤU TRÚC LUỒNG CHẠY (WORKFLOW & ARCHITECTURE MAP)
+
+### 3.1. Sơ đồ cây điều hướng 5 màn hình (Navigation Screen Map)
 
 ```text
-               ┌───────────────────────────────┐
-               │          HomeScreen           │
-               │  - Thẻ tóm tắt Profile        │
-               │  - Thống kê & Chuyển Theme    │
-               └───────┬──────────────┬────────┘
-                       │              │
-        Điều hướng     │              │     Điều hướng
-        vào Hồ sơ      │              │     vào Hoạt động
-                       ▼              ▼
-       ┌─────────────────────┐   ┌──────────────────────┐
-       │    ProfileScreen    │   │    ActivityScreen    │
-       │ - Chi tiết cá nhân  │   │ - FlatList hoạt động │
-       │ - Nút Sửa hồ sơ     │   │ - Filter & Favorite  │
-       └──────────┬──────────┘   │ - Empty State        │
-                  │              └──────────────────────┘
-                  │ Bấm "Sửa"
-                  ▼
-       ┌─────────────────────┐   ┌──────────────────────┐
-       │  EditProfileScreen  │   │    SettingsScreen    │
-       │ - Form có validation│   │ - Chuyển Sáng / Tối  │
-       │ - Lưu (Cập nhật)    │   │ - Khôi phục mặc định │
-       │ - Hủy (Không lưu)   │   └──────────────────────┘
-       └─────────────────────┘
+                           ┌───────────────────────────────┐
+                           │          HomeScreen           │
+                           │  - Lời chào & Thẻ tóm tắt     │
+                           │  - Thống kê & Công tắc Theme  │
+                           └───────┬──────────────┬────────┘
+                                   │              │
+                   Bấm "Xem hồ sơ" │              │ Bấm "Hoạt động"
+                                   ▼              ▼
+                  ┌─────────────────────┐   ┌──────────────────────┐
+                  │    ProfileScreen    │   │    ActivityScreen    │
+                  │ - Chi tiết cá nhân  │   │ - FlatList hoạt động │
+                  │ - Nút sửa & reset   │   │ - Lọc Category tabs  │
+                  └──────────┬──────────┘   │ - Trạng thái Empty   │
+                             │              └──────────────────────┘
+                   Bấm "Sửa" │
+                             ▼              ┌──────────────────────┐
+                  ┌─────────────────────┐   │    SettingsScreen    │
+                  │  EditProfileScreen  │   │ - Chuyển Sáng / Tối  │
+                  │ - Form có validation│   │ - Reset cài đặt gốc  │
+                  │ - Lưu (Cập nhật)    │   │ - Thông tin môn học  │
+                  │ - Hủy (Không lưu)   │   └──────────────────────┘
+                  └─────────────────────┘
+```
+
+### 3.2. Luồng nạp dữ liệu và khởi tạo ứng dụng (App Startup & Hydration Flow)
+
+```text
+[Mở ứng dụng]
+      │
+      ▼
+[App.js: Khởi tạo ThemeProvider & ProfileProvider]
+      │
+      ├───> [ThemeContext useEffect] ───> Đọc key '@mma301_theme_mode' từ AsyncStorage
+      │                                       │
+      │                                       ├──> Có dữ liệu: Áp dụng Dark/Light Mode đã lưu
+      │                                       └──> Chưa có: Áp dụng mặc định (Light Mode)
+      │
+      └───> [ProfileContext useEffect] ──> Đọc key '@mma301_profile_data' từ AsyncStorage
+                                              │
+                                              ├──> Có dữ liệu: Nạp hồ sơ đã lưu
+                                              └──> Chưa có: Nạp DEFAULT_PROFILE an toàn
+      │
+      ▼
+[Render Native Stack Navigator: HomeScreen hiển thị thông tin ngay lập tức]
+```
+
+### 3.3. Luồng kiểm tra form và cập nhật hồ sơ (Form Validation & Save Flow)
+
+```text
+[Người dùng tại EditProfileScreen]
+      │
+      ├──> Nhập liệu: Họ tên, Email, Số điện thoại, Bio (Controlled Inputs qua useState)
+      │
+      └──> Bấm "Lưu thay đổi" (handleSave)
+              │
+              ▼
+       [Chạy validateForm()]
+              │
+              ├──> [Có lỗi] (Tên rỗng, Email sai regex, SĐT sai regex)
+              │        │
+              │        ├──> Cập nhật state errors
+              │        ├──> Hiển thị dòng chữ đỏ dưới từng input
+              │        └──> Hiện Alert cảnh báo, CHẶN LƯU DỮ LIỆU
+              │
+              └──> [Hợp lệ 100%]
+                       │
+                       ├──> Gọi updateProfile(formData) trong ProfileContext
+                       ├──> ProfileContext setProfile(newProfile) (Cập nhật RAM)
+                       ├──> Ghi vào AsyncStorage qua setStoredItem (Lưu bộ nhớ)
+                       ├──> Hiện Alert thông báo thành công
+                       └──> navigation.goBack() quay lại ProfileScreen (UI tự cập nhật)
+```
+
+### 3.4. Luồng xử lý danh sách hoạt động (FlatList & Category Filter Flow)
+
+```text
+[ActivityScreen: Nạp danh sách từ AsyncStorage / DEFAULT_ACTIVITIES]
+      │
+      ├──> Người dùng chọn Tab: "Tất cả" | "Học tập" | "Thể thao" | "Giải trí" | "Yêu thích"
+      │        │
+      │        ▼
+      │   [Lọc mảng theo category / isFavorite]
+      │        │
+      │        ├──> [Mảng có phần tử]: FlatList render từng ActivityItem
+      │        │        │
+      │        │        ├──> Bấm ★: Đổi isFavorite -> Lưu AsyncStorage
+      │        │        ├──> Bấm Hoàn thành: Đổi isCompleted -> Lưu AsyncStorage
+      │        │        └──> Bấm Xóa: Lọc bỏ item -> Lưu AsyncStorage
+      │        │
+      │        └──> [Mảng rỗng (0 phần tử)]: Kích hoạt ListEmptyComponent (EmptyState)
+      │                 │
+      │                 └──> Hiển thị thông báo rỗng & Nút "Khôi phục dữ liệu mẫu"
 ```
 
 ---

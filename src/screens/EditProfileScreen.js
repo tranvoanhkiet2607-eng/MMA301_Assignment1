@@ -5,11 +5,11 @@ import {
   TextInput,
   StyleSheet,
   ScrollView,
-  SafeAreaView,
   Alert,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
 import { useProfile } from '../context/ProfileContext';
 import { CustomButton } from '../components/CustomButton';
@@ -97,7 +97,7 @@ export const EditProfileScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background }]}>
+    <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.safeArea, { backgroundColor: theme.background }]}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={styles.keyboardView}
@@ -138,7 +138,7 @@ export const EditProfileScreen = ({ navigation }) => {
             />
             {errors.name && (
               <Text style={[styles.errorText, { color: theme.danger }]}>
-                ⚠️ {errors.name}
+                {errors.name}
               </Text>
             )}
           </View>
@@ -169,7 +169,7 @@ export const EditProfileScreen = ({ navigation }) => {
             />
             {errors.email && (
               <Text style={[styles.errorText, { color: theme.danger }]}>
-                ⚠️ {errors.email}
+                {errors.email}
               </Text>
             )}
           </View>
@@ -199,7 +199,7 @@ export const EditProfileScreen = ({ navigation }) => {
             />
             {errors.phone && (
               <Text style={[styles.errorText, { color: theme.danger }]}>
-                ⚠️ {errors.phone}
+                {errors.phone}
               </Text>
             )}
           </View>
@@ -237,7 +237,7 @@ export const EditProfileScreen = ({ navigation }) => {
             />
             {errors.bio && (
               <Text style={[styles.errorText, { color: theme.danger }]}>
-                ⚠️ {errors.bio}
+                {errors.bio}
               </Text>
             )}
           </View>
@@ -245,14 +245,14 @@ export const EditProfileScreen = ({ navigation }) => {
           {/* Nhóm nút Lưu / Hủy */}
           <View style={styles.buttonGroup}>
             <CustomButton
-              title="💾 Lưu thay đổi"
+              title="Lưu thay đổi"
               onPress={handleSave}
               variant="primary"
               style={styles.saveButton}
             />
 
             <CustomButton
-              title="❌ Hủy bỏ"
+              title="Hủy"
               onPress={handleCancel}
               variant="outline"
               style={styles.cancelButton}
