@@ -1,5 +1,8 @@
 # NHẬT KÝ SỬ DỤNG AI CÓ KIỂM SOÁT (AI USAGE LOG)
 **Môn học:** MMA301 - Multiplatform Mobile App Development  
+**Trường:** Đại học FPT (FPT University)  
+**Sinh viên:** Trần Võ Anh Kiệt (MSSV: CE180795)  
+**Email:** KietTVACE180795@fpt.edu.vn  
 **Bài tập:** Assignment 01 – Profile & Activity App  
 **Chính sách:** Tuân thủ mục 9 & 10 của Student Guide về Sử dụng AI minh bạch và có trách nhiệm.
 

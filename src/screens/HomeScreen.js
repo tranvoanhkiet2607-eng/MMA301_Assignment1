@@ -51,7 +51,7 @@ export const HomeScreen = ({ navigation }) => {
         <View style={styles.header}>
           <View>
             <Text style={[styles.greeting, { color: theme.textSecondary }]}>
-              Xin chào sinh viên 👋
+              Xin chào sinh viên Đại học FPT 👋
             </Text>
             <Text style={[styles.userName, { color: theme.text }]}>
               {profile.name}
@@ -64,7 +64,7 @@ export const HomeScreen = ({ navigation }) => {
             ]}
           >
             <Text style={[styles.badgeAppText, { color: theme.primary }]}>
-              MMA301 - Lab 1
+              MMA301 - FPTU
             </Text>
           </View>
         </View>

@@ -65,6 +65,15 @@ export const ProfileCard = ({ profile, isCompact = false, onEditPress }) => {
         <View style={[styles.detailsSection, { borderTopColor: theme.border }]}>
           <View style={styles.infoRow}>
             <Text style={[styles.infoLabel, { color: theme.textSecondary }]}>
+              🎓 Mã số sinh viên (MSSV):
+            </Text>
+            <Text style={[styles.infoValue, { color: theme.primary, fontWeight: '700' }]}>
+              {profile?.studentId || 'CE180795'}
+            </Text>
+          </View>
+
+          <View style={styles.infoRow}>
+            <Text style={[styles.infoLabel, { color: theme.textSecondary }]}>
               📞 Điện thoại:
             </Text>
             <Text style={[styles.infoValue, { color: theme.text }]}>

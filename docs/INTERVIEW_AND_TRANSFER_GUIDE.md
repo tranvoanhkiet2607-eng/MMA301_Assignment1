@@ -1,5 +1,8 @@
 # HƯỚNG DẪN ÔN TẬP PHỎNG VẤN & XỬ LÝ YÊU CẦU THAY ĐỔI (TRANSFER TASKS)
 **Môn học:** MMA301 - Multiplatform Mobile App Development  
+**Trường:** Đại học FPT (FPT University)  
+**Sinh viên:** Trần Võ Anh Kiệt (MSSV: CE180795)  
+**Email:** KietTVACE180795@fpt.edu.vn  
 **Mục tiêu:** Giúp sinh viên nắm vững 100% mã nguồn để tự tin trả lời vấn đáp và thực hiện các yêu cầu sửa code trực tiếp của giảng viên.
 
 ---

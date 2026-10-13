@@ -119,6 +119,42 @@ export const SettingsScreen = ({ navigation }) => {
         >
           <View style={styles.aboutRow}>
             <Text style={[styles.aboutLabel, { color: theme.textSecondary }]}>
+              Sinh viên thực hiện:
+            </Text>
+            <Text style={[styles.aboutValue, { color: theme.primary, fontWeight: '700' }]}>
+              Trần Võ Anh Kiệt
+            </Text>
+          </View>
+
+          <View style={styles.aboutRow}>
+            <Text style={[styles.aboutLabel, { color: theme.textSecondary }]}>
+              Mã số sinh viên (MSSV):
+            </Text>
+            <Text style={[styles.aboutValue, { color: theme.text, fontWeight: '700' }]}>
+              CE180795
+            </Text>
+          </View>
+
+          <View style={styles.aboutRow}>
+            <Text style={[styles.aboutLabel, { color: theme.textSecondary }]}>
+              Email FPT:
+            </Text>
+            <Text style={[styles.aboutValue, { color: theme.text }]}>
+              KietTVACE180795@fpt.edu.vn
+            </Text>
+          </View>
+
+          <View style={styles.aboutRow}>
+            <Text style={[styles.aboutLabel, { color: theme.textSecondary }]}>
+              Trường:
+            </Text>
+            <Text style={[styles.aboutValue, { color: theme.text }]}>
+              Đại học FPT (FPT University)
+            </Text>
+          </View>
+
+          <View style={styles.aboutRow}>
+            <Text style={[styles.aboutLabel, { color: theme.textSecondary }]}>
               Môn học:
             </Text>
             <Text style={[styles.aboutValue, { color: theme.text }]}>

@@ -67,6 +67,33 @@ export const ProfileScreen = ({ navigation }) => {
 
           <View style={styles.infoRow}>
             <Text style={[styles.label, { color: theme.textSecondary }]}>
+              Sinh viên:
+            </Text>
+            <Text style={[styles.value, { color: theme.text, fontWeight: '700' }]}>
+              Trần Võ Anh Kiệt
+            </Text>
+          </View>
+
+          <View style={styles.infoRow}>
+            <Text style={[styles.label, { color: theme.textSecondary }]}>
+              Mã số sinh viên:
+            </Text>
+            <Text style={[styles.value, { color: theme.primary, fontWeight: '700' }]}>
+              CE180795
+            </Text>
+          </View>
+
+          <View style={styles.infoRow}>
+            <Text style={[styles.label, { color: theme.textSecondary }]}>
+              Cơ sở đào tạo:
+            </Text>
+            <Text style={[styles.value, { color: theme.text }]}>
+              Đại học FPT (FPT University)
+            </Text>
+          </View>
+
+          <View style={styles.infoRow}>
+            <Text style={[styles.label, { color: theme.textSecondary }]}>
               Môn học:
             </Text>
             <Text style={[styles.value, { color: theme.text }]}>

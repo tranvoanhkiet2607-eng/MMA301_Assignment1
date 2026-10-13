@@ -1,5 +1,8 @@
 # MA TRẬN KIỂM THỬ VÀ NHẬT KÝ SỬA LỖI (TEST MATRIX & DEBUG LOGS)
 **Môn học:** MMA301 - Multiplatform Mobile App Development  
+**Trường:** Đại học FPT (FPT University)  
+**Sinh viên:** Trần Võ Anh Kiệt (MSSV: CE180795)  
+**Email:** KietTVACE180795@fpt.edu.vn  
 **Bài tập:** Assignment 01 – Profile & Activity App  
 
 ---

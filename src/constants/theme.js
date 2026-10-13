@@ -34,14 +34,15 @@ export const darkColors = {
   statusBar: 'light',
 };
 
-// Dữ liệu Profile mặc định (Safe default khi first-run hoặc lỗi storage)
+// Dữ liệu Profile mặc định (Thông tin sinh viên Đại học FPT - MMA301)
 export const DEFAULT_PROFILE = {
-  name: 'Nguyễn Văn A',
-  email: 'nguyenvana@fpt.edu.vn',
+  name: 'Trần Võ Anh Kiệt',
+  studentId: 'CE180795',
+  email: 'KietTVACE180795@fpt.edu.vn',
   phone: '0901234567',
-  bio: 'Sinh viên ngành Lập trình Di động (MMA301). Yêu thích React Native và xây dựng ứng dụng di động đa nền tảng.',
+  bio: 'Sinh viên ngành Lập trình Di động (MMA301) - Đại học FPT. Đam mê phát triển ứng dụng di động đa nền tảng với React Native & Expo.',
   avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80',
-  role: 'Mobile App Developer Student',
+  role: 'Sinh viên FPT University - MMA301',
 };
 
 // Dữ liệu danh sách hoạt động / sở thích mặc định

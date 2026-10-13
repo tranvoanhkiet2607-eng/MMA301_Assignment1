@@ -12,7 +12,20 @@ export const ProfileProvider = ({ children }) => {
   useEffect(() => {
     const loadProfile = async () => {
       const savedProfile = await getStoredItem(STORAGE_KEYS.PROFILE, DEFAULT_PROFILE);
-      setProfile(savedProfile || DEFAULT_PROFILE);
+      if (savedProfile && (!savedProfile.studentId || savedProfile.studentId !== DEFAULT_PROFILE.studentId)) {
+        // Tự động đồng bộ thông tin sinh viên FPT (Trần Võ Anh Kiệt)
+        const synced = {
+          ...DEFAULT_PROFILE,
+          ...savedProfile,
+          name: DEFAULT_PROFILE.name,
+          studentId: DEFAULT_PROFILE.studentId,
+          email: DEFAULT_PROFILE.email,
+        };
+        setProfile(synced);
+        await setStoredItem(STORAGE_KEYS.PROFILE, synced);
+      } else {
+        setProfile(savedProfile || DEFAULT_PROFILE);
+      }
       setIsProfileLoaded(true);
     };
 

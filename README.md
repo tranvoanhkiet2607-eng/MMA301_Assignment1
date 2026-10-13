@@ -1,5 +1,9 @@
 # MMA301 - ASSIGNMENT 1: PROFILE & ACTIVITY APP
 **Môn học:** MMA301 – Multiplatform Mobile App Development  
+**Trường:** Đại học FPT (FPT University)  
+**Sinh viên thực hiện:** Trần Võ Anh Kiệt (Tran Vo Anh Kiet)  
+**Mã số sinh viên (MSSV):** CE180795  
+**Email:** KietTVACE180795@fpt.edu.vn  
 **Chủ đề:** Assignment 01 – React Native Foundations  
 **Nền tảng:** React Native + Expo (Ngôn ngữ JavaScript)  
 

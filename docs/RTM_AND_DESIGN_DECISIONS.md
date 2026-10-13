@@ -1,5 +1,8 @@
 # HỒ SƠ YÊU CẦU & QUYẾT ĐỊNH THIẾT KẾ (RTM & DDR)
 **Môn học:** MMA301 - Multiplatform Mobile App Development  
+**Trường:** Đại học FPT (FPT University)  
+**Sinh viên:** Trần Võ Anh Kiệt (MSSV: CE180795)  
+**Email:** KietTVACE180795@fpt.edu.vn  
 **Bài tập:** Assignment 01 – Profile & Activity App (React Native Foundations)  
 **Nền tảng:** React Native + Expo (JavaScript)  
 
