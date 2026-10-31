@@ -155,7 +155,7 @@ export const ActivityScreen = () => {
             onPress={() => setIsModalVisible(true)}
             activeOpacity={0.8}
           >
-            <Text style={styles.addButtonText}>+ Thêm mới</Text>
+            <Text style={styles.addButtonText}>Thêm mới</Text>
           </TouchableOpacity>
         </View>
 

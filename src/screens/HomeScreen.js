@@ -223,10 +223,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 4,
   },
-  statIcon: {
-    fontSize: 20,
-    marginBottom: 4,
-  },
   statNumber: {
     fontSize: 18,
     fontWeight: '800',

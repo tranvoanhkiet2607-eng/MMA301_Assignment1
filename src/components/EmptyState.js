@@ -5,14 +5,12 @@ import { CustomButton } from './CustomButton';
 
 /**
  * Reusable EmptyState component hiển thị khi danh sách rỗng (FlatList ListEmptyComponent)
- * @param {string} icon - Biểu tượng emoji
  * @param {string} title - Tiêu đề thông báo
  * @param {string} message - Nội dung chi tiết
  * @param {string} actionTitle - Tiêu đề nút hành động (nếu có)
  * @param {function} onAction - Hàm thực hiện khi bấm nút
  */
 export const EmptyState = ({
-  icon,
   title = 'Chưa có hoạt động nào',
   message = 'Danh sách hiện tại đang trống. Hãy thêm hoạt động mới hoặc khôi phục dữ liệu mẫu.',
   actionTitle,
@@ -22,7 +20,6 @@ export const EmptyState = ({
 
   return (
     <View style={[styles.container, { backgroundColor: theme.surface, borderColor: theme.border }]}>
-      {icon ? <Text style={styles.icon}>{icon}</Text> : null}
       <Text style={[styles.title, { color: theme.text }]}>{title}</Text>
       <Text style={[styles.message, { color: theme.textSecondary }]}>{message}</Text>
 
@@ -47,10 +44,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 20,
     borderStyle: 'dashed',
-  },
-  icon: {
-    fontSize: 48,
-    marginBottom: 12,
   },
   title: {
     fontSize: 17,

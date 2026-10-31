@@ -39,7 +39,7 @@ const { DEFAULT_PROFILE, DEFAULT_ACTIVITIES, lightColors, darkColors } = require
 const testResults = [];
 function recordTest(id, group, name, passed, detail) {
   testResults.push({ id, group, name, passed, detail });
-  const status = passed ? '✅ PASS' : '❌ FAIL';
+  const status = passed ? '[PASS]' : '[FAIL]';
   console.log(`[Case ${id.toString().padStart(2, '0')}] ${group.padEnd(12)} - ${name.padEnd(25)}: ${status} (${detail})`);
 }
 
@@ -218,7 +218,7 @@ async function runTestSuite() {
   console.log('\n======================================================================');
   const allPassed = testResults.every(t => t.passed);
   console.log(`KẾT QUẢ TỔNG QUAN: ${testResults.filter(t => t.passed).length}/${testResults.length} TEST CASES PASS!`);
-  console.log(`ĐÁNH GIÁ: ${allPassed ? '✅ HOÀN TOÀN ĐẠT CHUẨN 10/10 RUBRIC!' : '❌ CẦN KIỂM TRA LẠI'}`);
+  console.log(`ĐÁNH GIÁ: ${allPassed ? '[PASS] HOÀN TOÀN ĐẠT CHUẨN 10/10 RUBRIC!' : '[FAIL] CẦN KIỂM TRA LẠI'}`);
   console.log('======================================================================\n');
 }
 

@@ -79,11 +79,22 @@ export const ActivityItem = ({
         {/* Nút yêu thích (Favorite) */}
         <TouchableOpacity
           onPress={() => onToggleFavorite(item.id)}
-          style={styles.actionIcon}
+          style={[
+            styles.favoriteButton,
+            {
+              backgroundColor: item.isFavorite ? '#FCE4EC' : theme.surface,
+              borderColor: item.isFavorite ? '#E91E63' : theme.border,
+            },
+          ]}
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
-          <Text style={[styles.iconText, { color: item.isFavorite ? '#E91E63' : theme.textSecondary }]}>
-            {item.isFavorite ? '★' : '☆'}
+          <Text
+            style={[
+              styles.favoriteText,
+              { color: item.isFavorite ? '#E91E63' : theme.textSecondary },
+            ]}
+          >
+            {item.isFavorite ? 'Đã thích' : 'Thích'}
           </Text>
         </TouchableOpacity>
       </View>
@@ -183,11 +194,15 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '700',
   },
-  actionIcon: {
-    padding: 4,
+  favoriteButton: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 6,
+    borderWidth: 1,
   },
-  iconText: {
-    fontSize: 20,
+  favoriteText: {
+    fontSize: 11,
+    fontWeight: '600',
   },
   title: {
     fontSize: 16,

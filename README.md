@@ -15,7 +15,7 @@
 - **HomeScreen:** Màn hình tổng quan, hiển thị chào mừng, thẻ tóm tắt hồ sơ sinh viên, số liệu hoạt động, chuyển đổi giao diện nhanh và các nút điều hướng chính.
 - **ProfileScreen:** Hiển thị chi tiết hồ sơ cá nhân (ảnh đại diện, họ tên, vai trò, email, số điện thoại, tiểu sử, thông tin môn học) cùng nút mở form chỉnh sửa.
 - **EditProfileScreen:** Biểu mẫu nhập liệu (Controlled Form) với cơ chế kiểm tra hợp lệ chặt chẽ (Validation), hỗ trợ Lưu (Save) hoặc Hủy bỏ (Cancel). Chặn ghi đè dữ liệu khi có lỗi nhập liệu.
-- **ActivityScreen:** Hiển thị danh sách các hoạt động & sở thích bằng `FlatList`, hỗ trợ chuyển đổi trạng thái (Yêu thích ❤️, Hoàn thành ✅, Xóa 🗑️), lọc theo danh mục và xử lý giao diện khi danh sách trống (Empty State).
+- **ActivityScreen:** Hiển thị danh sách các hoạt động & sở thích bằng `FlatList`, hỗ trợ chuyển đổi trạng thái (Yêu thích, Hoàn thành, Xóa), lọc theo danh mục và xử lý giao diện khi danh sách trống (Empty State).
 - **SettingsScreen:** Quản lý giao diện Sáng / Tối (Light / Dark Mode) toàn hệ thống và lưu trữ lâu dài; cung cấp nút khôi phục cài đặt gốc an toàn và thông tin đề tài.
 
 ---
@@ -134,7 +134,7 @@
       │        │
       │        ├──> [Mảng có phần tử]: FlatList render từng ActivityItem
       │        │        │
-      │        │        ├──> Bấm ★: Đổi isFavorite -> Lưu AsyncStorage
+      │        │        ├──> Bấm Thích: Đổi isFavorite -> Lưu AsyncStorage
       │        │        ├──> Bấm Hoàn thành: Đổi isCompleted -> Lưu AsyncStorage
       │        │        └──> Bấm Xóa: Lọc bỏ item -> Lưu AsyncStorage
       │        │
@@ -197,10 +197,10 @@ assignment1/
 ## 6. HỒ SƠ TÀI LIỆU NỘP BÀI KÈM THEO
 
 Trong thư mục `docs/`, toàn bộ tài liệu theo đúng chuẩn rubric môn MMA301 đã được chuẩn bị đầy đủ:
-- 📑 [Bảng RTM & Quyết định kỹ thuật (RTM & DDR)](docs/RTM_AND_DESIGN_DECISIONS.md)
-- 🧪 [Ma trận kiểm thử (12 Cases) & Nhật ký Debug](docs/TEST_MATRIX_AND_DEBUG_LOGS.md)
-- 🎯 [Hướng dẫn trả lời vấn đáp & Transfer Tasks](docs/INTERVIEW_AND_TRANSFER_GUIDE.md)
-- 🤖 [Nhật ký sử dụng AI minh bạch (AI Usage Log)](docs/AI_USAGE_LOG.md)
+- [Bảng RTM & Quyết định kỹ thuật (RTM & DDR)](docs/RTM_AND_DESIGN_DECISIONS.md)
+- [Ma trận kiểm thử (12 Cases) & Nhật ký Debug](docs/TEST_MATRIX_AND_DEBUG_LOGS.md)
+- [Hướng dẫn trả lời vấn đáp & Transfer Tasks](docs/INTERVIEW_AND_TRANSFER_GUIDE.md)
+- [Nhật ký sử dụng AI minh bạch (AI Usage Log)](docs/AI_USAGE_LOG.md)
 
 ---
 

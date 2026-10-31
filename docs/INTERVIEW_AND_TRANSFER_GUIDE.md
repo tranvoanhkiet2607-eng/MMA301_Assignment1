@@ -75,7 +75,7 @@ Nếu giảng viên yêu cầu chỉnh sửa code ngay tại chỗ trong buổi 
 - **Bước 1:** Trong `src/constants/theme.js`, bổ sung `location: 'TP. Hồ Chí Minh'` vào `DEFAULT_PROFILE`.
 - **Bước 2:** Trong `src/screens/ProfileScreen.js`, thêm dòng hiển thị:
   ```jsx
-  <Text style={styles.infoLabel}>📍 Địa chỉ: {profile.location || 'Chưa cập nhật'}</Text>
+  <Text style={styles.infoLabel}>Địa chỉ: {profile.location || 'Chưa cập nhật'}</Text>
   ```
 - **Bước 3:** Trong `src/screens/EditProfileScreen.js`:
   - Khai báo state: `const [location, setLocation] = useState(profile.location || '');`

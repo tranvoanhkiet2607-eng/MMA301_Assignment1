@@ -61,10 +61,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
-  icon: {
-    fontSize: 22,
-    marginRight: 12,
-  },
   labelContainer: {
     flex: 1,
   },
